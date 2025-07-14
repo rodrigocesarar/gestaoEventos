@@ -1,4 +1,4 @@
-package br.com.gestao.eventos.model;
+package br.com.gestao.eventos.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
