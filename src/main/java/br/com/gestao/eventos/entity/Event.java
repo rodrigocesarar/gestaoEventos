@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Evento {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,18 +24,18 @@ public class Evento {
 
     @NotBlank
     @Size(max = 100)
-    private String titulo;
+    private String title;
 
     @Size(max = 1000)
-    private String descricao;
+    private String description;
 
     @FutureOrPresent
-    private LocalDateTime dataHora;
+    private LocalDateTime dateTime;
 
     @Size(max = 200)
-    private String local;
+    private String location;
 
-    private Boolean deletado = false;
+    private Boolean deleted = false;
 
     private LocalDateTime createdAt;
 
