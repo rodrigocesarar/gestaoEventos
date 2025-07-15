@@ -1,14 +1,14 @@
 package br.com.gestao.eventos.repository;
 
-import br.com.gestao.eventos.entity.Evento;
+import br.com.gestao.eventos.entity.Event;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface EventoRepository extends JpaRepository<Evento, Long> {
-    Page<Evento> findByDeletadoFalse(Pageable pageable);
+public interface EventRepository extends JpaRepository<Event, Long> {
+    Page<Event> findByDeletedFalse(Pageable pageable);
 
-    Optional<Evento> findByIdAndDeletadoFalse(Long id);
+    Optional<Event> findByIdAndDeletedFalse(Long id);
 }

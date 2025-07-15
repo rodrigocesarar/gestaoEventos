@@ -8,17 +8,17 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class EventoRequest {
+public class EventRequest {
     @NotBlank
     @Size(max = 100)
-    private String titulo;
+    private String title;
 
     @Size(max = 1000)
-    private String descricao;
+    private String description;
 
     @FutureOrPresent
-    private LocalDateTime dataHora;
+    private LocalDateTime dateTime;
 
     @Size(max = 200)
-    private String local;
+    private String location;
 }
