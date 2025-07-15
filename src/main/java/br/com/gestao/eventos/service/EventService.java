@@ -3,7 +3,7 @@ package br.com.gestao.eventos.service;
 import br.com.gestao.eventos.dto.EventRequest;
 import br.com.gestao.eventos.dto.EventResponse;
 import br.com.gestao.eventos.entity.Event;
-import br.com.gestao.eventos.entity.Evento;
+import br.com.gestao.eventos.exception.ResourceNotFoundException;
 import br.com.gestao.eventos.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
