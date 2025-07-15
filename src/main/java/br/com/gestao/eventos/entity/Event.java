@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "events", schema = "public")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
