@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class EventService {
@@ -19,7 +21,7 @@ public class EventService {
     private final EventRepository eventoRepository;
 
     public Page<EventResponse> listAll(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("dataHora").descending());
+        Pageable pageable = PageRequest.of(page, size, Sort.by("dateTime").descending());
         Page<Event> eventos = eventoRepository.findByDeletedFalse(pageable);
 
         return eventos.map(this::toResponse);
@@ -37,6 +39,7 @@ public class EventService {
                 .dateTime(request.getDateTime())
                 .location(request.getLocation())
                 .deleted(false)
+                .createdAt(LocalDateTime.now())
                 .build();
 
         eventoRepository.save(event);
@@ -49,6 +52,7 @@ public class EventService {
         event.setDescription(request.getDescription());
         event.setDateTime(request.getDateTime());
         event.setLocation(request.getLocation());
+        event.setUpdatedAt(LocalDateTime.now());
 
         eventoRepository.save(event);
         return toResponse(event);

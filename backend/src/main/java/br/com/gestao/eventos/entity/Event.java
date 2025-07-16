@@ -36,7 +36,7 @@ public class Event {
     @Size(max = 200)
     private String location;
 
-    private Boolean deleted = false;
+    private Boolean deleted;
 
     private LocalDateTime createdAt;
 
