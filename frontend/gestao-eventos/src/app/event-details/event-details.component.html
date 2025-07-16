@@ -1,0 +1,21 @@
+<div class="container my-4" *ngIf="evento">
+    <h3 class="mb-4">Detalhes do Evento</h3>
+  
+    <div class="card">
+      <div class="card-header">
+        Evento #{{ evento.id }} - {{ evento?.title }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ evento.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ evento?.dateTime | date:'fullDate' }} às {{ evento?.dateTime | date:'shortTime' }}
+        </h6>
+        <p class="card-text">{{ evento?.description }}</p>
+        <p><strong>Local:</strong> {{ evento?.location }}</p>
+      </div>
+      <div class="card-footer text-end">
+        <button class="btn btn-secondary" routerLink="/events">Voltar</button>
+      </div>
+    </div>
+  </div>
+  

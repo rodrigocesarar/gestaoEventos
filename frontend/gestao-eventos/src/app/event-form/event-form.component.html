@@ -1,0 +1,44 @@
+<form [formGroup]="eventoForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input id="title" type="text" class="form-control" formControlName="title" placeholder="Título do evento" />
+      <div *ngIf="eventoForm.get('title')?.invalid && eventoForm.get('title')?.touched" class="text-danger small">
+        Título obrigatório e máximo 100 caracteres.
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="description" class="form-label">Descrição</label>
+      <textarea id="description" rows="4" class="form-control" formControlName="description" placeholder="Descrição do evento"></textarea>
+      <div *ngIf="eventoForm.get('description')?.invalid && eventoForm.get('description')?.touched" class="text-danger small">
+        Descrição obrigatória e máximo 1000 caracteres.
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="dateTime" class="form-label">Data e Hora</label>
+      <input id="dateTime" type="datetime-local" class="form-control" formControlName="dateTime" />
+      <div *ngIf="eventoForm.get('dateTime')?.invalid && eventoForm.get('dateTime')?.touched" class="text-danger small">
+        Data e hora obrigatórias.
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="location" class="form-label">Local</label>
+      <input id="location" type="text" class="form-control" formControlName="location" placeholder="Local do evento" />
+      <div *ngIf="eventoForm.get('location')?.invalid && eventoForm.get('location')?.touched" class="text-danger small">
+        Local obrigatório e máximo 200 caracteres.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="eventoForm.invalid">
+      {{ editando ? 'Atualizar' : 'Criar' }} Evento
+    </button>
+
+    <div *ngIf="message" class="alert alert-success">{{ message }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  
+  </form>
+  
