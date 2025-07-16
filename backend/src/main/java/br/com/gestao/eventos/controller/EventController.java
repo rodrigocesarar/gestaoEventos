@@ -55,7 +55,7 @@ public class EventController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletar um evento existente")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        eventService.softDelwte(id);
+        eventService.softDelete(id);
         return ResponseEntity.noContent().build();
     }
 

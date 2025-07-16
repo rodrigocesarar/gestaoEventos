@@ -58,7 +58,7 @@ public class EventService {
         return toResponse(event);
     }
 
-    public void softDelwte(Long id) {
+    public void softDelete(Long id) {
         Event event = findEventOrThrow(id);
         event.setDeleted(true);
         eventoRepository.save(event);

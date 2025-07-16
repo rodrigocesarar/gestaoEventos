@@ -56,7 +56,7 @@ public class EventServiceTest {
 
     @Test
     void shouldThrowWhenEventNotFound() {
-        lenient().when(eventRepository.findByIdAndDeletedFalse(999L))
+        lenient().when(eventRepository.findById(999L))
                 .thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class, () -> {
@@ -67,15 +67,15 @@ public class EventServiceTest {
     @Test
     void shouldSoftDeleteEvent() {
         Event event = Event.builder()
-                .id(1L)
+                .id(2L)
                 .title("Evento")
                 .deleted(false)
                 .build();
 
-        lenient().when(eventRepository.findByIdAndDeletedFalse(1L)).thenReturn(Optional.of(event));
-        lenient().when(eventRepository.save(any(Event.class))).thenReturn(event);
+        when(eventRepository.findById(2L)).thenReturn(Optional.of(event));
+        when(eventRepository.save(any(Event.class))).thenReturn(event);
 
-        eventService.softDelwte(1L);
+        eventService.softDelete(2L);
 
         assertTrue(event.getDeleted());
         verify(eventRepository, times(1)).save(event);

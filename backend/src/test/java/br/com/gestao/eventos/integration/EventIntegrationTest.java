@@ -16,7 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @TestPropertySource(properties = {
         "spring.datasource.url=jdbc:h2:mem:testdb",
-        "spring.jpa.hibernate.ddl-auto=create-drop"
+        "spring.jpa.hibernate.ddl-auto=create-drop",
+        "spring.flyway.enabled=false"
 })
 public class EventIntegrationTest {
 
@@ -34,7 +35,7 @@ public class EventIntegrationTest {
                 }
                     """;
 
-        mockMvc.perform(post("api/events")
+        mockMvc.perform(post("/api/events")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isOk())
