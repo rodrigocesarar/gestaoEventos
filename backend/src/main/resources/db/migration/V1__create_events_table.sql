@@ -7,8 +7,8 @@ CREATE TABLE public.events (
     date_time TIMESTAMP NOT NULL,
     location VARCHAR(200) NOT NULL,
     deleted BOOLEAN NOT NULL DEFAULT FALSE,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
 );
 
 CREATE OR REPLACE FUNCTION set_updated_at()
